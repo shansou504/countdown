@@ -2,9 +2,9 @@
 const currentDate = new Date();
 
 // Define end time parameters
-const endHour = 13;
-const endMinute = 32;
-const endSecond = 30;
+const endHour = 10;
+const endMinute = 30;
+const endSecond = 0;
 
 // Define end time
 const endTime = new Date(currentDate.getFullYear(),currentDate.getMonth(),
@@ -13,8 +13,9 @@ const endTime = new Date(currentDate.getFullYear(),currentDate.getMonth(),
 // Define transition time parameters
 const colorMinute = 10;
 const colorSecond = 0;
-let colorEndHour = endHour;
 
+// Calculate transition time
+let colorEndHour = endHour;
 let colorDiffSecond = endSecond - colorSecond;
 let colorDiffMinute = endMinute - colorMinute;
 
@@ -28,7 +29,6 @@ if (colorDiffMinute < 0) {
   colorEndHour -= 1;
 }
 
-// Define transition time
 let colorTime = new Date(currentDate.getFullYear(),currentDate.getMonth(),
   currentDate.getDate(),colorEndHour,colorDiffMinute,colorDiffSecond);
 
@@ -36,6 +36,7 @@ let colorTime = new Date(currentDate.getFullYear(),currentDate.getMonth(),
 const expirationMinute = 0;
 const expirationSecond = 60;
 
+// Calculate expiration time
 let expirationDiffSecond = endSecond - expirationSecond;
 let expirationDiffMinute = endMinute - expirationMinute;
 let expirationDiffHour = endHour;
@@ -50,7 +51,6 @@ if (expirationDiffMinute < 0) {
   expirationDiffHour -= 1;
 }
 
-// Define expiration time
 let expirationTime = new Date(currentDate.getFullYear(),currentDate.getMonth(),
   currentDate.getDate(),expirationDiffHour,expirationDiffMinute,expirationDiffSecond);
 
