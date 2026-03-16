@@ -14,4 +14,4 @@ From the command line within the root directory of this project, run ```python3 
 
 From the client device open a web browser pointed to ```http://localhost:8000```
 
-To adjust the timer, edit the first few lines of ```js/timer.js```
+To adjust the timer, edit ```js/timer.js```
