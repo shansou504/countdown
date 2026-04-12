@@ -15,6 +15,12 @@ Thumbs.db
 # Environment files
 .env
 
-# Images
-assets/icons/
-assets/images/
+# Assets
+assets
+
+# Python virtual environment
+.venv
+__pycache__
+
+# Roku Media-Assistant
+media_assist.py
