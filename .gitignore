@@ -16,11 +16,15 @@ Thumbs.db
 .env
 
 # Assets
-assets
+countdown/static/assets
 
-# Python virtual environment
+# Python setup
 .venv
-__pycache__
+__pycache__/
+
+dist/
+build/
+*.egg-info/
 
 # Roku Media-Assistant
 media_assist.py
