@@ -25,6 +25,3 @@ __pycache__/
 dist/
 build/
 *.egg-info/
-
-# Roku Media-Assistant
-media_assist.py
