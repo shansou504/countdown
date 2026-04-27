@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gray Road Baptist Church | Manage Announcements</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/icons/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/icons/favicon-32x32.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body class="manage-body">
+    <header class="manage-header">
+      <h1>Announcements Manager</h1>
+      <form method="post" action="{{ url_for('logout') }}">
+        <button class="btn btn-outline-gold" type="submit">Sign Out</button>
+      </form>
+    </header>
+    <main class="manage-main">
+      <section class="manage-section">
+        <h2>Upload Slides</h2>
+        <form class="upload-form" method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+          <input type="file" name="slides" accept=".png,.jpg,.jpeg" multiple>
+          <button class="btn btn-gold" type="submit">Upload</button>
+        </form>
+      </section>
+      <section class="manage-section">
+        <h2>Current Slides ({{ slides | length }})</h2>
+        {% if slides %}
+          <div class="slides-grid">
+            {% for slide in slides %}
+              <div class="slide-card">
+                <img src="{{ url_for('static', filename='assets/images/announcements/' + slide) }}" alt="{{ slide }}">
+                <footer>
+                  <span class="slide-name" title="{{ slide }}">{{ slide }}</span>
+                  <form method="post" action="{{ url_for('delete', filename=slide) }}">
+                    <button class="btn-delete" type="submit" onclick="return confirm('Delete {{ slide }}?')">Delete</button>
+                  </form>
+                </footer>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="slides-empty">No slides uploaded yet.</p>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

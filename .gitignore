@@ -17,11 +17,16 @@ Thumbs.db
 
 # Assets
 countdown/static/assets
+resources
 
 # Python setup
 .venv
-__pycache__/
+__pycache__
+instance
 
 dist/
 build/
 *.egg-info/
+
+# Claude
+.claude

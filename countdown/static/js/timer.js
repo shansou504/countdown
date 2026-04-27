@@ -82,19 +82,9 @@ const subtitle = [
   "Engaging the world with the gospel"
 ];
 
-// Define announcement array
+// Define announcement array (populated from /announcements.json in init)
 let announcementIndex = 0;
-const announcement = [
-  "/static/assets/images/announcements/Slide2.png",
-  "/static/assets/images/announcements/Slide5.png",
-  "/static/assets/images/announcements/Slide6.png",
-  "/static/assets/images/announcements/Slide7.png",
-  "/static/assets/images/announcements/Slide8.png",
-  "/static/assets/images/announcements/Slide9.png",
-  "/static/assets/images/announcements/Slide10.png",
-  "/static/assets/images/announcements/Slide11.png",
-  "/static/assets/images/announcements/Slide12.png"
-];
+let announcement = [];
 
 // Create setInterval Object
 let countdown;
@@ -213,7 +203,7 @@ function main() {
 
 }
 
-function init() {
+async function init() {
 
   // Define DOM elements
   subtitleElement = document.getElementById("subtitle");
@@ -230,6 +220,10 @@ function init() {
   countdownMessageElement = document.getElementById("countdown-message");
 
   announcementElement = document.getElementById("announcement");
+
+  // Fetch announcement slide list from the server
+  const res = await fetch("/announcements.json");
+  announcement = await res.json();
   announcementElement.src = announcement[announcementIndex];
 
   // Run main loop

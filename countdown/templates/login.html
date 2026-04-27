@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gray Road Baptist Church | Login</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/icons/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/icons/favicon-32x32.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body class="login-body">
+    <div class="login-card">
+      <h1>Announcements Manager</h1>
+      <form class="login-form" method="post">
+        <input type="password" name="password" placeholder="Password" autofocus required>
+        <button class="btn btn-gold" type="submit">Sign In</button>
+      </form>
+      {% if error %}<p class="login-error">{{ error }}</p>{% endif %}
+    </div>
+  </body>
+</html>
